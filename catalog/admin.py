@@ -13,11 +13,12 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Author, AuthorAdmin)
 
 class BookAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'author', 'display_genre')
 
 admin.site.register(Book, BookAdmin)
 
 class BookInstanceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('book', 'status', 'due_back', 'id')
+    list_filter = ('status', 'due_back')
 
 admin.site.register(BookInstance, BookInstanceAdmin)
